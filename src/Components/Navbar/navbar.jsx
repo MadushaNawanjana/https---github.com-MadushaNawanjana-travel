@@ -9,14 +9,19 @@ const Navbar = () => {
 
   // function to toggle navbar
   const showNav = () => {
-    setActive('active activeNavbar');
+    setActive('navBar activeNavbar');
+  };
+
+  // function to remove navbar
+  const removeNavbar = () => {
+    setActive('navBar');
   };
 
   return (
     <section className='navBarSection'>
-      <header className='header flex'>
+      <header className='header-flex'>
         <div className='logoDiv'>
-          <a href='#' className='logo flex'>
+          <a href='#' className='logo-flex'>
             <h1>
               {' '}
               <MdOutlineTravelExplore className='icon' /> Travel.
@@ -25,7 +30,7 @@ const Navbar = () => {
         </div>
 
         <div className={active}>
-          <ul className='navlists flex'>
+          <ul className='navlists'>
             <li className='navItem'>
               <a href='#' className='navlink'>
                 Home{' '}
@@ -74,11 +79,13 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className='closeNavbar'>
+        <div onClick={removeNavbar}
+         className='closeNavbar'>
           <AiFillCloseCircle className='icon' />
         </div>
 
-        <div className='toggleNavbar'>
+        <div onClick={showNav} 
+        className='toggleNavbar'>
           <TbGridDots className='icon' />
         </div>
       </header>
